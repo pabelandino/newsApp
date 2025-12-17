@@ -27,6 +27,20 @@ export const Colors = {
   },
 };
 
+// Common colors used across the app
+export const AppColors = {
+  // Pulse indicator colors
+  pulseGreen: '#4CAF50',
+  pulseOrange: '#FF9800',
+  // Article colors
+  articleBorder: '#e0e0e0',
+  articleTitle: '#000',
+  articleMetadata: '#666',
+  // Action colors
+  deleteRed: '#FF3B30',
+  deleteText: '#fff',
+};
+
 export const Fonts = Platform.select({
   ios: {
     /** iOS `UIFontDescriptorSystemDesignDefault` */

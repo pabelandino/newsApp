@@ -34,7 +34,7 @@ export const newsMocks = {
             objectID: '46291591',
             parent_id: 46288973,
             story_id: 46288491,
-            story_title: 'Mozilla appoints new CEO Anthony Enzor-Demeo',
+            story_title: '1 Mozilla appoints new CEO Anthony Enzor-Demeo',
             story_url:
                 'https://blog.mozilla.org/en/mozilla/leadership/mozillas-next-chapter-anthony-enzor-demeo-new-ceo/',
             updated_at: '2025-12-16T17:48:09Z',
@@ -65,7 +65,7 @@ export const newsMocks = {
             objectID: '46291546',
             parent_id: 46288479,
             story_id: 46286407,
-            story_title: 'A2UI: A Protocol for Agent-Driven Interfaces',
+            story_title: '2 A2UI: A Protocol for Agent-Driven Interfaces',
             story_url: 'https://a2ui.org/',
             updated_at: '2025-12-16T17:42:54Z',
         },
