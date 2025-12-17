@@ -31,7 +31,7 @@ export const Colors = {
 export const AppColors = {
   // Pulse indicator colors
   pulseGreen: '#4CAF50',
-  pulseOrange: '#FF9800',
+  favoriteOrange: '#FF9800',
   // Article colors
   articleBorder: '#e0e0e0',
   articleTitle: '#000',

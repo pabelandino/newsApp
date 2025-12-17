@@ -8,7 +8,7 @@ interface PulseIndicatorProps {
 }
 
 const PulseIndicator = ({isRecent}: PulseIndicatorProps) => {
-    const color = isRecent ? AppColors.pulseGreen : AppColors.pulseOrange;
+    const color = isRecent && AppColors.pulseGreen;
     const pulseSize = 8; // Always small size
     
     const animatedStyle = usePulseAnimation({

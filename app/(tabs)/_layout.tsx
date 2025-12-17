@@ -22,10 +22,17 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="explore"
+                name="favorites"
                 options={{
-                    title: 'Explore',
-                    tabBarIcon: ({color}) => <SymbolView size={28} name="paperplane.fill"/>,
+                    title: 'Favorites',
+                    tabBarIcon: ({color}) => <SymbolView size={28} name="heart.fill"/>,
+                }}
+            />
+            <Tabs.Screen
+                name="deleted"
+                options={{
+                    title: 'Deleted',
+                    tabBarIcon: ({color}) => <SymbolView size={28} name="trash.fill"/>,
                 }}
             />
         </Tabs>

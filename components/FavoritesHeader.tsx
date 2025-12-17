@@ -7,11 +7,11 @@ import Animated, {
 } from 'react-native-reanimated';
 import {AppColors} from '@/constants/theme';
 
-interface NewsHeaderProps {
+interface FavoritesHeaderProps {
     scrollY: SharedValue<number>;
 }
 
-const NewsHeader = ({scrollY}: NewsHeaderProps) => {
+const FavoritesHeader = ({scrollY}: FavoritesHeaderProps) => {
     const animatedStyle = useAnimatedStyle(() => {
         // Animate opacity and scale based on scroll position
         const opacity = interpolate(
@@ -43,7 +43,7 @@ const NewsHeader = ({scrollY}: NewsHeaderProps) => {
 
     return (
         <Animated.View style={[styles.container, animatedStyle]}>
-            <Text style={styles.title}>News</Text>
+            <Text style={styles.title}>Favorites</Text>
         </Animated.View>
     );
 };
@@ -60,5 +60,5 @@ const styles = StyleSheet.create({
     },
 });
 
-export default NewsHeader;
+export default FavoritesHeader;
 
