@@ -39,6 +39,8 @@ export const AppColors = {
   // Action colors
   deleteRed: '#FF3B30',
   deleteText: '#fff',
+  // Tab colors
+  tabIconInactive: '#9BA1A6',
 };
 
 export const Fonts = Platform.select({
