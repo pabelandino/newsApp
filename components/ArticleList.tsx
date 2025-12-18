@@ -43,8 +43,8 @@ export const ArticleList = ({
         if (isConnected === false && data.length > 0 && isError) {
             Toast.show({
                 type: 'info',
-                text1: 'Sin conexión',
-                text2: 'Mostrando datos guardados localmente',
+                text1: 'No connection',
+                text2: 'Showing locally saved data',
                 position: 'top',
                 visibilityTime: 3000,
             });
