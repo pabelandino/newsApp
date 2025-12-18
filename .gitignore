@@ -45,6 +45,3 @@ app-example
 # test coverage
 coverage/
 *.lcov
-
-# large demo files (use Git LFS if needed)
-# assets/app-demos/*.gif
