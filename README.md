@@ -35,11 +35,38 @@ A modern React Native news application built with Expo, featuring offline suppor
    npm install
    ```
 
+3. Generate native projects (required for native modules)
+
+   ```bash
+   npx expo prebuild
+   ```
+
+   This generates the `ios/` and `android/` directories needed to run the app with native modules.
+
+   **Troubleshooting**: If you encounter errors like `napi-postinstall: command not found` during `npm install`, this is normal. The error will be resolved after running `expo prebuild`, which sets up the native build environment properly.
+
 ## Running the App
 
 ### Important: Native Modules Required
 
 This project uses native modules (MMKV, WebView, Notifications, etc.), so it **cannot** run in Expo Go. You must use a development build.
+
+### Generate Native Projects
+
+Before running the app, you need to generate the native iOS and Android projects. These projects are not included in the repository (they are in `.gitignore`) and must be generated locally.
+
+Run the following command to generate the native projects:
+
+```bash
+npx expo prebuild
+```
+
+This will:
+- Generate the `ios/` and `android/` directories
+- Configure native modules and dependencies
+- Set up the necessary native code for all dependencies
+
+**Note**: You only need to run this once, or when you add new native dependencies. The generated folders are automatically ignored by Git.
 
 ### iOS Simulator
 
