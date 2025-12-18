@@ -29,18 +29,44 @@ export const Colors = {
 
 // Common colors used across the app
 export const AppColors = {
-  // Pulse indicator colors
-  pulseGreen: '#4CAF50',
-  favoriteOrange: '#FF9800',
-  // Article colors
-  articleBorder: '#e0e0e0',
-  articleTitle: '#000',
-  articleMetadata: '#666',
-  // Action colors
-  deleteRed: '#FF3B30',
-  deleteText: '#fff',
-  // Tab colors
-  tabIconInactive: '#9BA1A6',
+  light: {
+    // Pulse indicator colors
+    pulseGreen: '#4CAF50',
+    favoriteOrange: '#FF9800',
+    // Article colors
+    articleBorder: '#e0e0e0',
+    articleTitle: '#000',
+    articleMetadata: '#666',
+    articleBackground: '#fff',
+    // Action colors
+    deleteRed: '#FF3B30',
+    deleteText: '#fff',
+    // Tab colors
+    tabIconInactive: '#9BA1A6',
+    // Screen colors
+    screenBackground: '#fff',
+    // Header colors
+    headerText: '#000',
+  },
+  dark: {
+    // Pulse indicator colors
+    pulseGreen: '#4CAF50',
+    favoriteOrange: '#FF9800',
+    // Article colors
+    articleBorder: '#333',
+    articleTitle: '#ECEDEE',
+    articleMetadata: '#9BA1A6',
+    articleBackground: '#1C1C1E',
+    // Action colors
+    deleteRed: '#FF453A',
+    deleteText: '#fff',
+    // Tab colors
+    tabIconInactive: '#9BA1A6',
+    // Screen colors
+    screenBackground: '#000',
+    // Header colors
+    headerText: '#ECEDEE',
+  },
 };
 
 export const Fonts = Platform.select({

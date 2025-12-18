@@ -4,14 +4,15 @@
     "slug": "NewsApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/news-icon.icon",
     "scheme": "newsapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.pabel.NewsApp",
-      "appleTeamId": "9HK967F655"
+      "appleTeamId": "9HK967F655",
+      "icon": "./assets/news-icon.icon"
     },
     "android": {
       "adaptiveIcon": {

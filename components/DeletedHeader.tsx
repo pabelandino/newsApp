@@ -5,13 +5,14 @@ import Animated, {
     Extrapolation,
     SharedValue,
 } from 'react-native-reanimated';
-import {AppColors} from '@/constants/theme';
+import {useAppColors} from '@/hooks/use-app-colors';
 
 interface DeletedHeaderProps {
     scrollY: SharedValue<number>;
 }
 
 const DeletedHeader = ({scrollY}: DeletedHeaderProps) => {
+    const colors = useAppColors();
     const animatedStyle = useAnimatedStyle(() => {
         // Animate opacity and scale based on scroll position
         const opacity = interpolate(
@@ -43,7 +44,7 @@ const DeletedHeader = ({scrollY}: DeletedHeaderProps) => {
 
     return (
         <Animated.View style={[styles.container, animatedStyle]}>
-            <Text style={styles.title}>Deleted</Text>
+            <Text style={[styles.title, {color: colors.articleTitle}]}>Deleted</Text>
         </Animated.View>
     );
 };
@@ -56,7 +57,6 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 32,
         fontWeight: 'bold',
-        color: AppColors.articleTitle,
     },
 });
 
