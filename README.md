@@ -94,7 +94,7 @@ npm run android
 
 The app intelligently handles offline scenarios. When there's no internet connection, it displays locally saved articles instead of showing an error. A toast notification informs users that they're viewing cached data.
 
-![Offline Mode Demo](./assets/app-demos/offlinemode.gif)
+[![Offline Mode Demo](https://img.youtube.com/vi/Jvd4p7mbpLg/maxresdefault.jpg)](https://youtu.be/Jvd4p7mbpLg)
 
 ### Core Functionality
 
@@ -106,7 +106,7 @@ The app includes comprehensive features that work seamlessly:
 - **Article Details**: Tap any article to view full content in an in-app WebView modal
 - **Settings**: Configure notification preferences and manage app settings
 
-<!-- ![General App Demo](./assets/app-demos/general-app-demo.gif) -->
+[![General App Demo](https://img.youtube.com/vi/j59qsHO_aKY/maxresdefault.jpg)](https://youtu.be/j59qsHO_aKY)
 
 ### Dark Mode
 
