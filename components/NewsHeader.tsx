@@ -5,13 +5,14 @@ import Animated, {
     Extrapolation,
     SharedValue,
 } from 'react-native-reanimated';
-import {AppColors} from '@/constants/theme';
+import {useAppColors} from '@/hooks/use-app-colors';
 
 interface NewsHeaderProps {
     scrollY: SharedValue<number>;
 }
 
 const NewsHeader = ({scrollY}: NewsHeaderProps) => {
+    const colors = useAppColors();
     const animatedStyle = useAnimatedStyle(() => {
         // Animate opacity and scale based on scroll position
         const opacity = interpolate(
@@ -43,7 +44,7 @@ const NewsHeader = ({scrollY}: NewsHeaderProps) => {
 
     return (
         <Animated.View style={[styles.container, animatedStyle]}>
-            <Text style={styles.title}>News</Text>
+            <Text style={[styles.title, {color: colors.articleTitle}]}>News</Text>
         </Animated.View>
     );
 };
@@ -56,7 +57,6 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 32,
         fontWeight: 'bold',
-        color: AppColors.articleTitle,
     },
 });
 

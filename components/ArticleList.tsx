@@ -4,6 +4,7 @@ import Animated, {SharedValue} from 'react-native-reanimated';
 import {Article} from '@/models/articles';
 import React, {useEffect} from 'react';
 import Toast from 'react-native-toast-message';
+import {useAppColors} from '@/hooks/use-app-colors';
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList<Article>);
 
@@ -38,6 +39,8 @@ export const ArticleList = ({
     refreshing,
     isConnected,
 }: ArticleListProps) => {
+    const colors = useAppColors();
+    
     // Show toast if no connection and we have local data
     useEffect(() => {
         if (isConnected === false && data.length > 0 && isError) {
@@ -53,7 +56,7 @@ export const ArticleList = ({
 
     if (isLoading) {
         return (
-            <SafeAreaView style={[styles.container, styles.centerContent]}>
+            <SafeAreaView style={[styles.container, styles.centerContent, {backgroundColor: colors.screenBackground}]}>
                 <ActivityIndicator size="large" />
             </SafeAreaView>
         );
@@ -63,22 +66,22 @@ export const ArticleList = ({
     // If we have local data but no connection, show the data with a toast
     if (isError && data.length === 0) {
         return (
-            <SafeAreaView style={[styles.container, styles.centerContent]}>
-                <Text style={styles.errorText}>{errorMessage}</Text>
+            <SafeAreaView style={[styles.container, styles.centerContent, {backgroundColor: colors.screenBackground}]}>
+                <Text style={[styles.errorText, {color: colors.articleMetadata}]}>{errorMessage}</Text>
             </SafeAreaView>
         );
     }
 
     if (data.length === 0 && emptyMessage) {
         return (
-            <SafeAreaView style={[styles.container, styles.centerContent]}>
-                <Text style={styles.emptyText}>{emptyMessage}</Text>
+            <SafeAreaView style={[styles.container, styles.centerContent, {backgroundColor: colors.screenBackground}]}>
+                <Text style={[styles.emptyText, {color: colors.articleMetadata}]}>{emptyMessage}</Text>
             </SafeAreaView>
         );
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={[styles.container, {backgroundColor: colors.screenBackground}]}>
             <AnimatedFlatList
                 data={data}
                 renderItem={renderItem}
@@ -107,11 +110,9 @@ const styles = StyleSheet.create({
     },
     errorText: {
         fontSize: 16,
-        color: '#666',
     },
     emptyText: {
         fontSize: 16,
-        color: '#666',
     },
 });
 

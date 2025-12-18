@@ -2,14 +2,16 @@ import {Tabs} from 'expo-router';
 import React from 'react';
 
 import {SymbolView} from 'expo-symbols';
-import {AppColors} from '@/constants/theme';
+import {useAppColors} from '@/hooks/use-app-colors';
 
 export default function TabLayout() {
+    const colors = useAppColors();
+    
     return (
         <Tabs
             screenOptions={{
-                tabBarActiveTintColor: AppColors.favoriteOrange,
-                tabBarInactiveTintColor: AppColors.tabIconInactive,
+                tabBarActiveTintColor: colors.favoriteOrange,
+                tabBarInactiveTintColor: colors.tabIconInactive,
                 headerShown: false,
             }}>
             <Tabs.Screen

@@ -23,11 +23,13 @@ interface NotificationsState {
     enabled: boolean;
     preferredQueries: string[];
     lastCheckedTimestamp: number;
+    hasRequestedInitialPermission: boolean;
     setEnabled: (enabled: boolean) => void;
     setPreferredQueries: (queries: string[]) => void;
     addPreferredQuery: (query: string) => void;
     removePreferredQuery: (query: string) => void;
     updateLastCheckedTimestamp: () => void;
+    setHasRequestedInitialPermission: (hasRequested: boolean) => void;
 }
 
 export const useNotificationsStore = create<NotificationsState>()(
@@ -36,8 +38,12 @@ export const useNotificationsStore = create<NotificationsState>()(
             enabled: false,
             preferredQueries: [],
             lastCheckedTimestamp: Date.now(),
+            hasRequestedInitialPermission: false,
             setEnabled: (enabled: boolean) => {
                 set({enabled});
+            },
+            setHasRequestedInitialPermission: (hasRequested: boolean) => {
+                set({hasRequestedInitialPermission: hasRequested});
             },
             setPreferredQueries: (queries: string[]) => {
                 set({preferredQueries: queries});

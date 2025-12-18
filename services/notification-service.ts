@@ -64,6 +64,8 @@ export async function checkForNewArticlesTask(
 
                 // Send notification for each new article that matches preferences
                 for (const article of newArticles) {
+                    // Add article to store so it's available when notification is tapped
+                    articlesStore.setArticles([article]);
                     await sendArticleNotification(article, query);
                     notifiedArticleIds.add(article.created_at_i);
                     hasNewArticles = true;

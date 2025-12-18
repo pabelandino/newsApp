@@ -3,6 +3,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {useNotifications} from '@/hooks/use-notifications';
 import {useNotificationsStore} from '@/stores/notificationsStore';
 import {useState} from 'react';
+import {useAppColors} from '@/hooks/use-app-colors';
 
 const AVAILABLE_QUERIES = ['mobile', 'android', 'ios', 'react', 'javascript', 'python', 'web'];
 
@@ -16,6 +17,7 @@ export default function SettingsScreen() {
         removePreferredQuery,
     } = useNotificationsStore();
     const [isRequesting, setIsRequesting] = useState(false);
+    const colors = useAppColors();
 
     const handleToggleNotifications = async (value: boolean) => {
         if (value && permissionStatus !== 'granted') {
@@ -38,21 +40,21 @@ export default function SettingsScreen() {
     };
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={[styles.container, {backgroundColor: colors.screenBackground}]}>
             <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
                 <View style={styles.section}>
-                    <Text style={styles.sectionTitle}>Push Notifications</Text>
-                    <Text style={styles.sectionDescription}>
+                    <Text style={[styles.sectionTitle, {color: colors.articleTitle}]}>Push Notifications</Text>
+                    <Text style={[styles.sectionDescription, {color: colors.articleMetadata}]}>
                         Stay informed about the latest articles that match your interests. We'll send you
                         notifications when new articles are published on topics you care about, so you never
                         miss important updates. You have full control over which topics you want to be
                         notified about.
                     </Text>
 
-                    <View style={styles.settingRow}>
+                    <View style={[styles.settingRow, {borderBottomColor: colors.articleBorder}]}>
                         <View style={styles.settingInfo}>
-                            <Text style={styles.settingLabel}>Enable notifications</Text>
-                            <Text style={styles.settingDescription}>
+                            <Text style={[styles.settingLabel, {color: colors.articleTitle}]}>Enable notifications</Text>
+                            <Text style={[styles.settingDescription, {color: colors.articleMetadata}]}>
                                 {permissionStatus === 'granted'
                                     ? 'Permissions granted'
                                     : permissionStatus === 'denied'
@@ -79,14 +81,14 @@ export default function SettingsScreen() {
 
                 {enabled && permissionStatus === 'granted' && (
                     <View style={styles.section}>
-                        <Text style={styles.sectionTitle}>Article Preferences</Text>
-                        <Text style={styles.sectionDescription}>
+                        <Text style={[styles.sectionTitle, {color: colors.articleTitle}]}>Article Preferences</Text>
+                        <Text style={[styles.sectionDescription, {color: colors.articleMetadata}]}>
                             Select the topics you want to receive notifications about:
                         </Text>
 
                         {AVAILABLE_QUERIES.map((query) => (
-                            <View key={query} style={styles.settingRow}>
-                                <Text style={styles.settingLabel}>
+                            <View key={query} style={[styles.settingRow, {borderBottomColor: colors.articleBorder}]}>
+                                <Text style={[styles.settingLabel, {color: colors.articleTitle}]}>
                                     {query.charAt(0).toUpperCase() + query.slice(1)}
                                 </Text>
                                 <Switch
@@ -97,7 +99,7 @@ export default function SettingsScreen() {
                         ))}
 
                         {preferredQueries.length === 0 && (
-                            <Text style={styles.warningText}>
+                            <Text style={[styles.warningText, {color: colors.favoriteOrange}]}>
                                 Select at least one topic to receive notifications.
                             </Text>
                         )}
@@ -111,7 +113,6 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
     },
     scrollView: {
         flex: 1,
@@ -126,11 +127,9 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 8,
-        color: '#000',
     },
     sectionDescription: {
         fontSize: 14,
-        color: '#666',
         marginBottom: 16,
         lineHeight: 20,
     },
@@ -140,7 +139,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 12,
         borderBottomWidth: 1,
-        borderBottomColor: '#e0e0e0',
     },
     settingInfo: {
         flex: 1,
@@ -148,12 +146,10 @@ const styles = StyleSheet.create({
     },
     settingLabel: {
         fontSize: 16,
-        color: '#000',
         marginBottom: 4,
     },
     settingDescription: {
         fontSize: 12,
-        color: '#666',
     },
     button: {
         backgroundColor: '#0a7ea4',

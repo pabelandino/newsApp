@@ -1,6 +1,6 @@
 import ArticleDetails from '@/components/ArticleDetails';
 import { SwipeAction } from '@/components/SwipeActions';
-import { AppColors } from '@/constants/theme';
+import { useAppColors } from '@/hooks/use-app-colors';
 import { Article } from '@/models/articles';
 import { useRef } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -23,6 +23,7 @@ const SwipeableArticleItem = ({
     isFavorite,
 }: SwipeableArticleItemProps) => {
     const swipeableRef = useRef<SwipeableMethods>(null);
+    const colors = useAppColors();
 
     const handleDelete = () => {
         onDelete(article);
@@ -42,8 +43,8 @@ const SwipeableArticleItem = ({
                     drag={drag}
                     onPress={handleToggleFavorite}
                     label={isFavorite ? 'Unfav' : 'Fav'}
-                    backgroundColor={isFavorite ? AppColors.favoriteOrange : AppColors.pulseGreen}
-                    textColor={AppColors.deleteText}
+                    backgroundColor={isFavorite ? colors.favoriteOrange : colors.pulseGreen}
+                    textColor={colors.deleteText}
                     offset={0}
                 />
                 <SwipeAction
@@ -51,8 +52,8 @@ const SwipeableArticleItem = ({
                     drag={drag}
                     onPress={handleDelete}
                     label="Delete"
-                    backgroundColor={AppColors.deleteRed}
-                    textColor={AppColors.deleteText}
+                    backgroundColor={colors.deleteRed}
+                    textColor={colors.deleteText}
                     offset={100}
                 />
             </>
